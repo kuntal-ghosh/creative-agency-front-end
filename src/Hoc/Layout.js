@@ -4,9 +4,7 @@ const Layout = (props) => {
     return ( 
         <>
         
-        <nav>
-            <NavBar/>
-        </nav>
+        <NavBar/>
         {props.children}
 
         <footer>

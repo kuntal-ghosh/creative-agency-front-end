@@ -1,0 +1,49 @@
+.Item {
+}
+
+.slick_item {
+}
+
+.button__bar {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 30px auto;
+  //   background: rgba(255, 255, 255, 0.3);
+  border-radius: 40px;
+  width: 100px;
+  text-align: center;
+}
+
+.button__bar li {
+  list-style: none;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 8px;
+  padding: 0;
+}
+
+.button__bar li button {
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  color: transparent;
+  cursor: pointer;
+  display: block;
+  height: 15px;
+  width: 15px;
+  border-radius: 7.5px;
+}
+.button__bar :global(li.slick-active) button {
+  background-color: rgba(251, 208, 98, 1);
+}
+
+.button__bar li button:hover
+// .button__bar li button:focus,
+// .button__bar li button:active
+{
+  background: rgba(251, 208, 98, 1);
+  color: "#FBD062";
+  outline: 0;
+}
+.button__bar li button:focus {
+  outline: 0;
+}

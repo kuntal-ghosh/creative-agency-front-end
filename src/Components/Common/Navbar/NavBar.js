@@ -121,7 +121,7 @@ const NavBar = () => {
   return (
     <>
       <div className={classes.root}>
-        <AppBar position="fixed" style={{    padding:"10px 30px"}} className={classes[appRef.current]}>
+        <AppBar position="fixed" style={{width:"100%",padding:"10px 30px"}} className={classes[appRef.current]}>
           <Toolbar>
             <Hidden mdUp>
               <IconButton

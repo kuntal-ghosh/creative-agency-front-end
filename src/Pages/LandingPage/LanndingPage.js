@@ -5,7 +5,8 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from "@material-ui/core/Typography";
 import { Hidden,CardMedia } from '@material-ui/core';
-
+import Services from '../../Components/LandingPage/Services/Services';
+import OurWork from '../../Components/LandingPage/OurWork/ourWork';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -130,6 +131,12 @@ const LandingPage=()=>{
              </Grid>
 
                </Grid>
+           </section>
+           <section>
+            <Services/>
+           </section>
+           <section className={styles.our_work}>
+             <OurWork></OurWork>
            </section>
        </main>
         </>
