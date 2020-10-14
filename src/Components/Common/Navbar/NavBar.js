@@ -21,7 +21,8 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-
+    width:"100%",
+    OverflowX:"hidden",
     // width: "20%",
     // backgroundColor: "none",
     "& .MuiPaper-elevation4": {

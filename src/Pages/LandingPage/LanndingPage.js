@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from "@material-ui/core/Typography";
-import { Hidden } from '@material-ui/core';
+import { Hidden,CardMedia } from '@material-ui/core';
 
 
 
@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
       "& .MuiGrid-container":{
         [theme.breakpoints.down('sm')]: {
             // backgroundColor: theme.palette.secondary.main,
+            padding:"20px 10px",
             justifyContent:"center",
     
           },
@@ -35,7 +36,9 @@ const useStyles = makeStyles((theme) => ({
         color: "rgba(251, 208, 98, 1)",
         borderRadius:"5px",
         width:"100px",
-        textAlign:"center"
+        textAlign:"center",
+        display:"inline-block",
+        marginTop:"20px"
 
       },
     header_text:{
@@ -57,10 +60,16 @@ const useStyles = makeStyles((theme) => ({
             fontSize:"48px"
 
           },
+          marginTop:"50px",
+          marginBottom:"20px"
          
     },
     client_icon:{
-        textAlign:"center"
+        textAlign:"center",
+        width:"120px",
+        "& ._img":{
+            maxWidth:"120px"
+        }
     }
   }));
   
@@ -75,7 +84,7 @@ const LandingPage=()=>{
         <div  className={classes.root}>
         <Grid container spacing={3}>
 
-        <Grid item xs={5}>
+        <Grid item xs={12} sm={5}>
             <Typography className={classes.header_text} style={{fontWeight:"800"}}>
             Let’s Grow Your 
             Brand To The 
@@ -84,13 +93,11 @@ const LandingPage=()=>{
             <Typography m={5}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat 
             </Typography>
-            <div
-                    
-                    style={{ textDecoration: "none" }}
-                    className={classes.button}
+            <Typography
+            className={classes.button}
                   >
                     Hire Us
-                  </div>
+                  </Typography>
 
         </Grid>
         <Hidden smDown>
@@ -110,17 +117,17 @@ const LandingPage=()=>{
            <section>
                <Grid  container spacing={2} style={{justifyContent: 'center'}}>
                    <Grid item xs={2} className={classes.client_icon}>
-                    <img src="" alt=""/>
+                    <img src="/images/logos/airbnb.png" alt="airbnb" style={{width:"120px"}}/>
                    </Grid>
                    <Grid item xs={2} className={classes.client_icon}>
-ff
-                   </Grid>
+                   <img src="/images/logos/airbnb.png" alt="airbnb"  style={{width:"120px"}}/>
+                 </Grid>
                    <Grid item xs={2} className={classes.client_icon}>
-ff
-                   </Grid>
+                   <img src="/images/logos/airbnb.png" alt="airbnb" style={{width:"120px"}}/>
+              </Grid>
                    <Grid item xs={2} className={classes.client_icon}>
-ff
-                   </Grid>
+                   <img src="/images/logos/airbnb.png" alt="airbnb" style={{width:"120px"}}/>
+             </Grid>
 
                </Grid>
            </section>
