@@ -56,8 +56,8 @@ export default class SimpleSlider extends Component {
       };
     return (
       <div style={{marginRight:"103px",
-      marginLeft:"63px"}}>
-        <Typography variant="h5" style={{textAlign: 'center',marginBottom:"40px",fontWeight:600}}>
+      marginLeft:"63px",marginTop:"50px"}}>
+        <Typography variant="h4" style={{textAlign: 'center',marginBottom:"60px",fontWeight:600}}>
         Here are some of  <span style={{color:"#7AB259"}}>our works</span> 
             </Typography>
         <Slider {...settings}>
