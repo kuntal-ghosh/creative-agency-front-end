@@ -7,7 +7,8 @@ import Typography from "@material-ui/core/Typography";
 import { Hidden,CardMedia } from '@material-ui/core';
 import Services from '../../Components/LandingPage/Services/Services';
 import OurWork from '../../Components/LandingPage/OurWork/ourWork';
-
+import FeedBack from '../../Components/LandingPage/Clients_Feedack/FeedBack';
+import Contact from '../../Components/LandingPage/Contact/Contact';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -137,6 +138,12 @@ const LandingPage=()=>{
            </section>
            <section className={styles.our_work}>
              <OurWork></OurWork>
+           </section>
+           <section>
+             <FeedBack/>
+           </section>
+           <section className={styles.contact}>
+             <Contact/>
            </section>
        </main>
         </>

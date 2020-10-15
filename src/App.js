@@ -1,8 +1,9 @@
 import React from 'react';
+import { Route,Switch } from 'react-router-dom';
 import './App.css';
 import Layout from './Hoc/Layout';
 import LandingPage from './Pages/LandingPage/LanndingPage';
-
+import AdminPage from './Pages/AdminPage/AdminPage';
 function App() {
   return (
     // <div className="App">
@@ -23,7 +24,16 @@ function App() {
     // </div>
     <>
       <Layout>
+        <Switch>
+        <Route path="/customer-dashboard">
+          <AdminPage/>
+        </Route>
+        <Route path="/" >
         <LandingPage/>
+        </Route>
+      
+        </Switch>
+      
       </Layout>
     </>
   );

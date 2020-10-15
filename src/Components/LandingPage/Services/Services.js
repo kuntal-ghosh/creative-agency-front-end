@@ -31,14 +31,14 @@ const Services = () => {
             </Typography>
       <Grid container spacing={8}>
        
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} lg={4}>
             <Service/>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} lg={4}>
         <Service/>
 
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} lg={4}>
         <Service/>
 
         </Grid>
