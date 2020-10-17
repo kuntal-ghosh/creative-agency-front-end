@@ -19,6 +19,11 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import RegisterListMain from "./RegisterList_main";
 import AddEvent from "./AddEvent";
+import AddService from "./AddService/AddServices";
+import AddReview from "./AddReview/AddReview";
+import AddAdmin from "./AddAdmin/AddAdmin";
+
+
 import { Link } from "react-router-dom";
 import AddIcon from "@material-ui/icons/Add";
 const drawerWidth = 240;
@@ -62,16 +67,25 @@ function AdminPage(props) {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [drawerItem, setDrawerItem] = useState(0);
-  const [drawerText, setDrawerText] = useState("Volunteer List");
+  const [drawerText, setDrawerText] = useState("Add Order");
 
   let mainView = () => {
-    if (drawerItem === 0) {
+    if (drawerItem === 1) {
       // setDrawerText("");
 
       return <RegisterListMain />;
     }
-    if (drawerItem === 1) {
+    if (drawerItem === 0) {
       return <AddEvent />;
+    }
+    if(drawerItem===2){
+      return <AddService />;
+    }
+    if(drawerItem===3){
+      return <AddReview />;
+    }
+    if(drawerItem===4){
+      return <AddAdmin />;
     }
   };
 
@@ -96,7 +110,7 @@ function AdminPage(props) {
       </div>
       <Divider />
       <List>
-        {["Volunteer List", "Add Event"].map((text, index) => (
+        {[ "Add Order","Volunteer List","Add Service","Add Review","Add Admin"].map((text, index) => (
           <ListItem
             button
             key={text}

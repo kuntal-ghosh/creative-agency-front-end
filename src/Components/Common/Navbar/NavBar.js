@@ -15,8 +15,8 @@ import Menu from "@material-ui/core/Menu";
 import { Box } from "@material-ui/core";
 import Hidden from "@material-ui/core/Hidden";
 import { Link } from "react-router-dom";
-// import userContext from "../../Context/userContext";
-// import * as firebase from "../../services/firebase.auth";
+import * as firebase from "../../../services/firebase.auth";
+import userContext from '../../../Context/userContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -76,7 +76,7 @@ const NavBar = () => {
 
   appRef.current = navBackGround;
 
-  const [loginUser, setLoginUser] = useState();
+  const [loginUser, setLoginUser] = useContext(userContext);
 
   useEffect(() => {
     function handleScroll() {
@@ -103,15 +103,16 @@ const NavBar = () => {
   };
 
   const handleLogout = () => {
-    // setAnchorEl(null);
-    // const response = firebase.signout();
-    // console.log("response delete");
-    // console.log(response);
-    // if (response) {
-    //   console.log("response delete");
-    //   console.log(response);
-    //   setLoginUser({});
-    // }
+    setAnchorEl(null);
+    const response = firebase.signout();
+    console.log("response delete");
+    console.log(response);
+    if (response) {
+      console.log("response delete");
+      console.log(response);
+      setLoginUser({});
+      localStorage.clear();
+    }
   };
 
   function handleClose() {
@@ -179,6 +180,7 @@ const NavBar = () => {
                     aria-haspopup="true"
                     onClick={handleMenu}
                     color="inherit"
+                    style={{marginTop:"-10px"}}
                   >
                     <AccountCircle />
                   </IconButton>
@@ -207,7 +209,6 @@ const NavBar = () => {
                     </MenuItem>
 
                     <MenuItem                    
-                     className={classes.button}
                      onClick={handleLogout}>Logout
                      </MenuItem>
                   </Menu>

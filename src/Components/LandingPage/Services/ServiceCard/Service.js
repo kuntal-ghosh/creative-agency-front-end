@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     boxShadow:"none !important",
-
     
   },
   media: {
@@ -19,28 +18,33 @@ const useStyles = makeStyles({
     flexDirection:"column",
     alignItems:"center",
     maxWidth: "100%",
-    padding:"30px 0px"
+    padding:"30px 0px",
+    height:"300px"
+
   },
   img:{
     width:50 ,
-    marginBottom:"20px"
   }
 });
 
-export default function MediaCard() {
+export default function Service(props) {
   const classes = useStyles();
-
+  const {name,image,details}=props.service;
   return (
     <Card className={classes.root}>
       <CardActionArea className={classes.media} >
-        <img  src="/images/icons/service1.png" alt="service logo" 
+        <img  src={`data:image/png;base64,${image.img}`} 
         className={classes.img}/>
         <CardContent>
+        <Typography variant="h6" color="textSecondary" component="p" 
+          style={{fontWeight:"700",marginBottom:"10px",textAlign:"justify", padding:"0px 20px",display:"flex",justifyContent:"center"}}
+          >
+            {name}
+          </Typography>
           <Typography variant="body2" color="textSecondary" component="p" 
           style={{textAlign:"justify", padding:"0px 20px"}}
           >
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            {details}
           </Typography>
         </CardContent>
       </CardActionArea>

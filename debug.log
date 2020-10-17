@@ -1,3 +1,10 @@
 [1013/110503.479:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
 [1014/073959.954:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
 [1015/060955.682:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/174553.422:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1016/110542.925:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1016/181243.325:ERROR:process_info.cc(359)] UncheckedAllocate
+[1017/123505.802:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1017/141408.911:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1017/142524.997:ERROR:filesystem_win.cc(148)] DeleteFile C:\Users\ASUS\AppData\Local\Google\Chrome\User Data\Crashpad\reports\45aaa130-fac8-4175-8757-a9a35ad9f208.dmp: The process cannot access the file because it is being used by another process. (0x20)
+[1017/154806.355:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

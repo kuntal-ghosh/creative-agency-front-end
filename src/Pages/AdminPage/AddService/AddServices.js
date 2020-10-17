@@ -13,7 +13,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import userContext from "../../Context/userContext";
+// import userContext from "../../Context/userContext";
 // import {
 //   MuiPickersUtilsProvider,
 //   KeyboardTimePicker,
@@ -55,61 +55,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AddEvent() {
+export default function AddService() {
   const classes = useStyles();
   const history = useHistory();
-  const {serviceId}= useParams()
   const [eventData, setEventData] = useState({
     description: "",
     name: "",
-    price:null,
-    orderName: "",
-    email: "",
     projectFile:"",
     error: {},
   });
-  const [service, setService] = useState([]);
-  const [user, setUser] = useContext(userContext);
-  console.log("userkjfnjkrwnvjkrnw");
-  console.log(user);
-    useEffect(() => {
-      
-      const order={...eventData}
-      order.email=user.email;
-      setEventData(order);
-      fetch(`http://localhost:8000/api/services/${serviceId}`)
-      .then((response) => response.json()
-      .then((services)=>{
-        console.log("ienfinerigvnrejkgnvjbgjebv");
-        console.log(services);
-        setService(services);
-      }))
-     
-    }, [user])
-
   
-  // const [service, setService] = useState({});
-  // console.log("service selected");
-  // console.log(service);
-  // useEffect(() => {
 
-  // async  function getService() {
-
-  //   try {
-  //     const selectedService= await (await fetch(`http://localhost:8000/api/services/${serviceId}`)).jon();
-  //     if(selectedService)
-  //     {
-  //       setService(selectedService);
-
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  //   }
-
-  //   getService();
-    
-  // }, [])
+ 
   console.log("eventData");
   console.log(eventData);
   // const [loginUser, setLoginUser] = useContext(userContext);
@@ -176,45 +133,8 @@ export default function AddEvent() {
                 // helperText={eventData.error.name && eventData.error.name}
               />
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="email"
-                name="email"
-                autoComplete="email"
-                value={eventData.email}
-                // onChange={handleChange}
-                InputLabelProps={{
-                  shrink: true,
-                  readonly:true
-                }}
-                // error={eventData.error.email ? true : false}
-                // helperText={eventData.error.email && eventData.error.email}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-              readonly
-                variant="outlined"
-                required
-                fullWidth
-                id="orderName"
-                label="orderName"
-                name="orderName"
-                autoComplete="orderName"
-                value={service.name}
-                // onChange={handleChange}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                // error={eventData.error.orderName && eventData.error.orderName ? true : false}
-                // helperText={eventData.error.orderName && eventData.error.orderName}
-              />
-            </Grid>
+          
+          
             <Grid item xs={12}>
               {/*  utils={DateFnsUtils} */}
               {/* <MuiPickersUtilsProvider>
@@ -268,25 +188,8 @@ export default function AddEvent() {
                 // helperText={eventData.error.description && eventData.error.description}
               />
             </Grid>
-            <Grid item xs={6}>
-            <TextField
-                variant="outlined"
-                type="number"
-                required
-                fullWidth
-                id="price"
-                label="price"
-                name="price"
-                autoComplete="price"
-                value={eventData.price}
-                onChange={handleChange}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                // error={ eventData.error.price  && eventData.error.price ? true : false}
-                // helperText={eventData.error.price && eventData.error.price}
-              />            </Grid>
-            <Grid item xs={6} >
+       
+            <Grid item xs={12} >
               <input type="file" name="projectFile" style={{marginTop:"20px"}}
               onChange={handleFileChange}
               />
@@ -364,16 +267,11 @@ export default function AddEvent() {
       const formData = new FormData()
       formData.append('file',eventData.projectFile);
       formData.append('name',eventData.name);
-      formData.append('email',eventData.email);
-      formData.append('price',parseInt(eventData.price));
       formData.append('description',eventData.description);
-      formData.append('orderName',service.name);
-     
-      
 
       try {
         let result = await fetch(
-          "http://localhost:8000/api/orders",
+          "http://localhost:8000/api/services",
           {
             method: "POST",
             headers:{},
