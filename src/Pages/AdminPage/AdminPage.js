@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext,useEffect} from "react";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -22,7 +22,7 @@ import AddEvent from "./AddEvent";
 import AddService from "./AddService/AddServices";
 import AddReview from "./AddReview/AddReview";
 import AddAdmin from "./AddAdmin/AddAdmin";
-
+import userContext from '../../Context/userContext';
 
 import { Link } from "react-router-dom";
 import AddIcon from "@material-ui/icons/Add";
@@ -68,25 +68,76 @@ function AdminPage(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [drawerItem, setDrawerItem] = useState(0);
   const [drawerText, setDrawerText] = useState("Add Order");
+  const [user, setUser] = useContext(userContext);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isUser, setIsUser] = useState(false);
 
+  const [navItem, setNavItem] = useState([]);
+  useEffect(() => {
+
+    setNavItemUseWise();
+    fetch(`http://localhost:8000/api/admins/${user.email}`)
+    .then(res => res.json())
+    .then((isAdmin) =>{
+      if(isAdmin){
+        setIsAdmin(isAdmin);
+
+      }
+      else{
+        setIsUser(true);
+      }
+    })
+    .catch((err) =>{
+      console.log(err);
+    }
+    )
+  
+  }, [isAdmin,user])
+
+  function setNavItemUseWise(){
+    if(isUser){
+      setNavItem(["Add Order","Volunteer List","Add Review"]);
+    }
+    if(isAdmin)
+    {
+      setNavItem(["Add Service","Volunteer List","Add Admin"]);
+    }
+  }
+
+  
   let mainView = () => {
-    if (drawerItem === 1) {
-      // setDrawerText("");
 
-      return <RegisterListMain />;
+    if(isAdmin)
+    {
+      
+      if(drawerItem===0){
+        return <AddService />;
+      }
+      if (drawerItem === 1) {
+
+        return <RegisterListMain />;
+      }
+      if(drawerItem===2){
+        return <AddAdmin />;
+      }
     }
-    if (drawerItem === 0) {
-      return <AddEvent />;
+    if(isUser){
+
+      if (drawerItem === 1) {
+
+        return <RegisterListMain />;
+      }
+      if (drawerItem === 0) {
+        return <AddEvent />;
+      }
+      
+      if(drawerItem===3){
+        return <AddReview />;
+      }
     }
-    if(drawerItem===2){
-      return <AddService />;
-    }
-    if(drawerItem===3){
-      return <AddReview />;
-    }
-    if(drawerItem===4){
-      return <AddAdmin />;
-    }
+
+    
+    
   };
 
   const handleDrawerToggle = () => {
@@ -110,7 +161,9 @@ function AdminPage(props) {
       </div>
       <Divider />
       <List>
-        {[ "Add Order","Volunteer List","Add Service","Add Review","Add Admin"].map((text, index) => (
+        {
+          
+        navItem.map((text, index) => (
           <ListItem
             button
             key={text}
