@@ -1,5 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+please visit this link for backend repository [https://github.com/kuntal-ghosh/creative-agency-backend-]
 ## Available Scripts
 
 In the project directory, you can run:
